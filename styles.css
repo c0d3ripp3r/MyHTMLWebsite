@@ -1,0 +1,697 @@
+/* ==========================================================================
+   LinkedIn-Style Portfolio - Modern, Animated & ATS Optimized Stylesheet
+   Author: Jaimin Patel Portfolio
+   ========================================================================== */
+
+/* 1. Global CSS Variables & Theme Setup */
+:root {
+  --linkedin-blue: #0a66c2;
+  --linkedin-dark-blue: #004182;
+  --linkedin-light-blue: #e8f0fe;
+  --bg-color: #f3f2ef;
+  --card-bg: #ffffff;
+  --text-primary: rgba(0, 0, 0, 0.9);
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --border-color: #e0e0e0;
+  --border-light: #f0f0f0;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.12);
+  --transition-fast: 0.2s ease-in-out;
+  --transition-smooth: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* 2. Base Reset & Smooth Scroll Engine */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px; /* Offset for fixed navbar */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 3. Sticky Navigation & Animation */
+.navbar-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-fast);
+}
+
+.navbar {
+  max-width: 1128px;
+  margin: 0 auto;
+  padding: 8px 16px;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.logo-icon {
+  background-color: var(--linkedin-blue);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 20px;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.nav-brand:hover .logo-icon {
+  transform: scale(1.05);
+  background-color: var(--linkedin-dark-blue);
+}
+
+.brand-name {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 18px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: var(--linkedin-blue);
+  background-color: rgba(10, 102, 194, 0.08);
+}
+
+/* 4. Layout Container */
+.container {
+  max-width: 1128px;
+  margin: 20px auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 2.7fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 860px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .nav-links {
+    display: none; /* Mobile view simplification */
+  }
+}
+
+/* 5. Section Cards & Entrance Animations */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-smooth);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.section-animated {
+  animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) ease-in-out;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 6. Hero Profile Card */
+.profile-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.cover-photo {
+  height: 150px;
+  background: linear-gradient(135deg, #0a66c2 0%, #004182 60%, #002244 100%);
+  position: relative;
+}
+
+.profile-body {
+  padding: 0 24px 24px 24px;
+}
+
+.profile-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: -60px;
+  margin-bottom: 16px;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid var(--card-bg);
+  background-color: var(--linkedin-blue);
+  color: #ffffff;
+  font-size: 38px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: var(--transition-fast);
+}
+
+.profile-avatar:hover {
+  transform: scale(1.03);
+}
+
+.profile-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.profile-name {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.pronouns {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.profile-headline {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.profile-meta {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+.badge-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+}
+
+.badge-blue { background-color: #e8f0fe; color: var(--linkedin-blue); }
+.badge-green { background-color: #e6f4ea; color: #137333; }
+.badge-gray { background-color: #f1f3f4; color: #3c4043; }
+
+/* 7. Buttons & Links */
+.btn-primary {
+  background-color: var(--linkedin-blue);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 18px;
+  border-radius: var(--radius-lg);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition-fast);
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background-color: var(--linkedin-dark-blue);
+  box-shadow: 0 2px 6px rgba(10, 102, 194, 0.3);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--linkedin-blue);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 18px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--linkedin-blue);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(10, 102, 194, 0.08);
+}
+
+.link-blue {
+  color: var(--linkedin-blue);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.link-blue:hover {
+  text-decoration: underline;
+}
+
+.text-highlight {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* 8. Item Lists & Experience Rows */
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border-light);
+  padding-bottom: 8px;
+}
+
+.item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.item-row {
+  display: flex;
+  gap: 16px;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 18px;
+  transition: var(--transition-fast);
+}
+
+.item-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.item-icon {
+  width: 48px;
+  height: 48px;
+  background-color: #eef3f8;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--linkedin-blue);
+  flex-shrink: 0;
+  border: 1px solid var(--border-color);
+}
+
+.cert-icon {
+  background-color: #fce8e6;
+  color: #c5221f;
+}
+
+.item-content h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.item-company {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.item-date {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.item-desc {
+  font-size: 14px;
+  color: var(--text-primary);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.tag {
+  background-color: #f1f3f4;
+  color: var(--text-secondary);
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+/* 9. Nested Experience Grouping */
+.experience-group {
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 18px;
+}
+
+.group-header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.group-info h3 {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.group-duration {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.nested-roles {
+  margin-left: 64px;
+  border-left: 2px solid var(--border-color);
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.role-item {
+  position: relative;
+}
+
+.timeline-dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--linkedin-blue);
+  border-radius: 50%;
+  position: absolute;
+  left: -22px;
+  top: 6px;
+}
+
+.role-details h4 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* 10. Skills Pills Grid */
+.skills-category .category-heading {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text-secondary);
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-pill {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #f8f9fa;
+  color: var(--text-primary);
+  transition: var(--transition-fast);
+}
+
+.skill-pill:hover {
+  background-color: var(--linkedin-light-blue);
+  border-color: var(--linkedin-blue);
+  color: var(--linkedin-blue);
+  transform: translateY(-2px);
+}
+
+.skill-pill.highlight {
+  background-color: #eef3f8;
+  border-color: #c9d8e8;
+  font-weight: 600;
+}
+
+/* 11. Recommendation Cards */
+.recommendation-card {
+  background-color: #f9fafb;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.recommender-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.recommender-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #eef3f8;
+  color: var(--linkedin-blue);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.recommender-info h3 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.recommender-title {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.recommendation-date {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.recommendation-text {
+  font-style: italic;
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.5;
+  border-left: 3px solid var(--linkedin-blue);
+  padding-left: 12px;
+  margin-top: 6px;
+}
+
+/* 12. Sidebar Styling */
+.sidebar-card {
+  padding: 18px;
+}
+
+.sidebar-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 6px;
+}
+
+.simple-list {
+  list-style: none;
+  font-size: 14px;
+}
+
+.simple-list li {
+  margin-bottom: 8px;
+}
+
+.sidebar-item h4 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.sidebar-sub {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.sidebar-desc {
+  font-size: 13px;
+  color: var(--text-primary);
+  margin-top: 4px;
+}
+
+.contact-details p {
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-style: normal;
+}
+
+/* 13. Back to Top Floating Button */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: var(--linkedin-blue);
+  color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: var(--transition-fast);
+  z-index: 999;
+}
+
+.back-to-top:hover {
+  background-color: var(--linkedin-dark-blue);
+  transform: translateY(-3px);
+}
+
+/* 14. Footer */
+.footer {
+  text-align: center;
+  padding: 24px 16px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--card-bg);
+  margin-top: 40px;
+}
+
+/* ==========================================================================
+   15. ATS (Applicant Tracking System) & Print PDF Stylesheet
+   ========================================================================== */
+@media print {
+  /* Hide UI navigation elements */
+  .navbar-wrapper,
+  .back-to-top,
+  .profile-actions,
+  .cover-photo,
+  .footer {
+    display: none !important;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+
+  .container {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+
+  .card {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-bottom: 18pt !important;
+    background: transparent !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .profile-card {
+    border-bottom: 2pt solid #000000 !important;
+    padding-bottom: 12pt !important;
+  }
+
+  .profile-avatar {
+    display: none !important;
+  }
+
+  .profile-header-flex {
+    margin-top: 0 !important;
+  }
+
+  .section-title {
+    font-size: 14pt !important;
+    color: #000000 !important;
+    border-bottom: 1pt solid #000000 !important;
+    text-transform: uppercase;
+    margin-bottom: 10pt !important;
+  }
+
+  .item-row, .experience-group, .recommendation-card {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border-bottom: none !important;
+  }
+
+  .skill-pill {
+    border: 1pt solid #666666 !important;
+    background: none !important;
+    color: #000000 !important;
+  }
+}
