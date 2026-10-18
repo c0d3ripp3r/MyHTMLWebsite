@@ -1,4 +1,3 @@
-==============================
 Jaimin Patel - Single-Page LinkedIn Style Personal Portfolio (v2)
 ==============================
 
